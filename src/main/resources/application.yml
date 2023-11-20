@@ -21,7 +21,7 @@ spring:
   jpa:
     open-in-view: true
     hibernate:
-      ddl-auto: update #create 하면 서버를 다시키면 데이터는 다 사라짐?
+      ddl-auto: create #create 하면 서버를 다시키면 데이터는 다 사라짐? update
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true
