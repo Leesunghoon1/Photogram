@@ -28,7 +28,7 @@
                          <!--회원가입 인풋-->
                          <!-- csrf="" 는 정식홈페이지에서 받은 토큰으로 확인 절차 -->
                         <form class="login__input" action="/auth/signup" method="post"> <!-- 데이터를 디비에 전달하기 위해서 post로  -->
-                            <input type="text" name="username" placeholder="유저네임" required="required" csrf="KFC"/>
+                            <input type="text" name="username" placeholder="유저네임" required="required" maxlength="20"/>
                             <input type="password" name="password" placeholder="패스워드" required="required" />
                             <input type="email" name="email" placeholder="이메일" required="required" />
                             <input type="text" name="name" placeholder="이름" required="required" />
