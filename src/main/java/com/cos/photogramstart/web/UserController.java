@@ -20,9 +20,9 @@ public class UserController {
 	}
 	
 	@GetMapping("/user/{id}/update")
-	public String update(@PathVariable int id, @AuthenticationPrincipal PrincipalDetails principalDetails) {
+	public String updateForm(@PathVariable int id, @AuthenticationPrincipal PrincipalDetails principalDetails) {
 		System.out.println("세션정보" + principalDetails.getUser());
-		
+		System.out.println("id" + id);
 		
 		Authentication auth =  SecurityContextHolder.getContext().getAuthentication();
 		PrincipalDetails mPrincipalDetails = (PrincipalDetails) auth.getPrincipal();
@@ -30,7 +30,7 @@ public class UserController {
 		
 		
 		
-		return "user/profile";
+		return "user/update";
 	}
 	
 	

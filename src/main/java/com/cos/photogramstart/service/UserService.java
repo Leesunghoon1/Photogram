@@ -1,14 +1,15 @@
 package com.cos.photogramstart.service;
 
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cos.photogramstart.domain.user.User;
 import com.cos.photogramstart.domain.user.UserRepository;
+import com.cos.photogramstart.handler.ex.CustomValidationApiException;
 
 import lombok.RequiredArgsConstructor;
-
 @RequiredArgsConstructor
 @Service
 public class UserService {
@@ -19,7 +20,8 @@ public class UserService {
 	@Transactional
 	public User 회원수정(int id, User user) {
 		//1.영속화
-		User userEntity = userRepository.findById(id).get(); 
+		User userEntity = userRepository.findById(id).orElseThrow(() -> { return new CustomValidationApiException("찾을 수 없는 id입니다.");});
+		
 		
 
 		//1.무조건 찾았다 걱정마 .get() 2. 못찾았어 익셉션 발동시킬게 orElseThrow()
