@@ -2,7 +2,7 @@ package com.cos.photogramstart.handler.ex;
 
 import java.util.Map;
 
-public class CustomValidationApiException extends RuntimeException{
+public class CustomApiException extends RuntimeException{
 	//똑같은거 하나 더만듬
 	//
 
@@ -13,11 +13,11 @@ public class CustomValidationApiException extends RuntimeException{
 	/* private String message; */
 	private Map<String,String> errorMap;
 	
-	public CustomValidationApiException(String message) {
+	public CustomApiException(String message) {
 		super(message);
 	}
 	
-	public CustomValidationApiException(String message, Map<String, String> errorMap) {
+	public CustomApiException(String message, Map<String, String> errorMap) {
 		super(message);
 		//생성자
 		/* this.message = message; */
