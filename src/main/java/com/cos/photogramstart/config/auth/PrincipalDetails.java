@@ -13,12 +13,10 @@ import lombok.Data;
 
 @Data
 public class PrincipalDetails implements UserDetails{
-
 	
 	private static final long serialVersionUID = 1L;
 	
 	private User user;
-	
 	public PrincipalDetails(User user) {
 		this.user = user;
 	}
@@ -26,15 +24,9 @@ public class PrincipalDetails implements UserDetails{
 	//권한이라는게 한개가 아닐 수 있음.(3개 이상의 권한)
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		//권한을 가져오는 함수
-		
 		Collection<GrantedAuthority> collector = new ArrayList<>();
-		collector.add(() -> {
-				return user.getRole();
-		});
-		
+		collector.add(() -> { return user.getRole();});
 		return collector;
-		
 	}
 
 	@Override
